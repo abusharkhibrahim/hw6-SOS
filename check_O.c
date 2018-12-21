@@ -12,11 +12,11 @@ int check_O( char *ptr, int row, int col, int n)
         }
         if ( (row - 1) > 0 && (row + 1) < n)
         {
-            a = a + vertical_check_O(ptr);
+            a = a + vertical_check_O(ptr, n);
         }
         if ( ((row - 1) > 0 && (row + 1) < n) && ((row - 1) > 0 && (row + 1) < n))
         {
-            a = a + diagonal_check_O(ptr);
+            a = a + diagonal_check_O(ptr, n);
         }
    
     }
