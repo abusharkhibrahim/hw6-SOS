@@ -13,14 +13,35 @@ void drawboard(int n, char board[n][n])
         line[k] = '*';
         k++;
     }
+    
+    k = 1;
+    printf("\n    ");
+    while ( k <= n)
+    {
+        printf("  %d   ", k);  
+        k++;
+    }
+    printf("\n    ");
+
+    k = 1;
+    while ( k <= n)
+    {
+        printf("  -   ");
+        k++;
+    }
+    //printf("\n");    
 
     for (i=0; i<n; i++)
-    {
+    {   
+        
         printf("\n");
+
         if ( (i != 0) && (i != n))
         {
             printf("%s\n", line);
         }
+       
+        printf(" %d| ", (i+1));
         for (j=0; j<n; j++)
         {
             if ( j != (n-1) )
