@@ -1,14 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Input for this function is board and turn
+// Input for this function is (turn, board , board size, struct pointer)
 
-int player_move(int turn, char board[n][n]) 
+int player_move(int turn, char board[n][n], int n, struct Score *scorepointer) 
 {
+
     char letter; 
-    int row, column;
-    
-    printf("\nWhat letter would you like to enter? S/O\n");
+    int row, column, player;
+    char *ptr;
+
+    if ( turn%2 == 1)
+    {
+        player = 1;
+    }
+    else 
+    {
+        player = 2;
+    }
+
+    printf("\nIt is player %d's turn. What letter would you like to enter? S/O", player);
     
     while ( letter != 's' && letter != 'S' && letter != 'o' && letter != 'O')
     {
@@ -25,7 +36,7 @@ int player_move(int turn, char board[n][n])
         letter = 'O';
     }
 
-    printf("You chose the letter %c\n", letter);
+    printf("\nYou chose the letter %c", letter);
     do
     {
         printf("\n Please enter the row only.");
@@ -40,9 +51,25 @@ int player_move(int turn, char board[n][n])
     }while ( !valid_entry(row, column, board));
     
     board[row][column] = response;
+    ptr = &board[row][column];
+    
+    if (letter == 'S')
+    { 
+        a = check_S(ptr, row, column, n);
+    }
+    elseif(letter == 'O')
+    {
+        a = check_O(ptr, row, column, n);
+    }
 
-    int index[2] = { row, column }; 
-     
+    if ( player == 1)
+    {
+        (scorepointer->playerone) += a;
+    }
+    else if 
+    {
+        (scorepointer->playertwo) += a;
+    }
 
 
 }
